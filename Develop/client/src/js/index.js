@@ -1,4 +1,4 @@
-import { Workbox } from 'workbox-window';
+import { Workbox } from 'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-window.prod.mjs';
 import Editor from './editor';
 import './database';
 import '../css/style.css';
