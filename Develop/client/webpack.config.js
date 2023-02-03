@@ -3,8 +3,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a manifest file.
-const webpack = require('webpack'); //to access built-in plugins
+// TODO: Add and configure workbox plugins for a service worker and manifest file.
 
 // TODO: Add CSS loaders and babel to webpack.
 
@@ -21,10 +20,15 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new ServiceWorkerWebpackPlugin({
-        entry: path.join(__dirname, 'src/sw.js'), 
-        //lines 24-25 fulfill requirement to configure workbox plugins for a service worker
+      new HTMLWebpackPlugin({
+        template: './index.html',
+        title: 'Webpack Plugin',
       }),
+      new WebpackPwaManifest(),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js'
+      })
     ],
 
     module: {
