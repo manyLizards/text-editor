@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "concurrently \"cd client && npm run build\" \"cd server && npm run server\" ",
-    "start": "cd develop cd server",
+    "start": "webpack --watch",
     "server": "cd server node server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -16,11 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "webpack": "^5.75.0"
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "webpack-cli": "^5.0.1"
   }
 }
