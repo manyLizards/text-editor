@@ -31,9 +31,10 @@ module.exports = () => {
       })
     ],
 
-    module: {
+    module: { //I think I need office hours for this one
       rules: [
-        
+        test: ,
+        use: ,
       ],
     },
   };
